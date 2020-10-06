@@ -15,12 +15,20 @@ document.addEventListener("DOMContentLoaded", function() {
 function createTask(newTask) {
   const div = document.createElement('div');
   const li = document.createElement('li');
+  const deleteTask = document.createElement('input')
+  const tasks = document.getElementById('tasks')
 
+  deleteTask.type = 'submit'
+  deleteTask.value = 'Delete Task'
   li.innerText = newTask;
 
-  div.append(li)
-
-  const tasks = document.getElementById('tasks')
+  // li.append(deleteTask)
+  div.append(li, deleteTask)
   tasks.append(div)
+
+  deleteTask.addEventListener('click', function(e){
+    console.log(e)
+    div.remove();
+  })
 }
 
